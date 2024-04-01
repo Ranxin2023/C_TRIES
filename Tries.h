@@ -7,7 +7,8 @@ typedef struct _TRIES
 {
     // char character;
     int end;
-    size_t idx;
+    size_t idx_length;
+    size_t *idxs;
     struct _TRIES *children[128];
 } TRIES;
 

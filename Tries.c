@@ -4,6 +4,8 @@ TRIES *initialize()
     TRIES *t = malloc(sizeof(TRIES));
     // t->character = c;
     t->end = 0;
+    t->idxs = NULL;
+    t->idx_length = 0;
     memset(t->children, 0, sizeof(t->children));
     return t;
 }
@@ -21,7 +23,16 @@ void insert_word(TRIES *trie, size_t idx, char *word)
         t = t->children[(int)word[i]];
     }
     t->end = 1;
-    t->idx = idx;
+    if (t->idx_length == 0)
+    {
+        t->idxs = malloc(sizeof(size_t));
+    }
+    else
+    {
+        t->idxs = (size_t *)realloc(t->idxs, sizeof(size_t) * (t->idx_length + 1));
+    }
+    t->idxs[t->idx_length] = idx;
+    t->idx_length += 1;
 }
 
 int find_word(TRIES *trie, char *word)
