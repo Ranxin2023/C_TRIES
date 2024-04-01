@@ -7,11 +7,12 @@ typedef struct _TRIES
 {
     // char character;
     int end;
+    size_t idx;
     struct _TRIES *children[128];
 } TRIES;
 
 TRIES *initialize();
-void insert_word(TRIES *trie, char *word);
+void insert_word(TRIES *trie, size_t i, char *word);
 int find_word(TRIES *trie, char *word);
 int find_prefix(TRIES *trie, char *prefix);
 #endif

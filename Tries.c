@@ -8,7 +8,7 @@ TRIES *initialize()
     return t;
 }
 
-void insert_word(TRIES *trie, char *word)
+void insert_word(TRIES *trie, size_t idx, char *word)
 {
     TRIES *t = trie;
     size_t word_length = strlen(word);
@@ -21,6 +21,7 @@ void insert_word(TRIES *trie, char *word)
         t = t->children[(int)word[i]];
     }
     t->end = 1;
+    t->idx = idx;
 }
 
 int find_word(TRIES *trie, char *word)

@@ -7,7 +7,7 @@ int main()
     TRIES *t = initialize();
     for (size_t i = 0; i < words_size; i++)
     {
-        insert_word(t, words[i]);
+        insert_word(t, i, words[i]);
     }
     printf("whether word 'dog' exist in tries: %d\n", find_word(t, "dog"));
     printf("whether prefix 'res' exist in tries: %d\n", find_prefix(t, "res"));
