@@ -92,6 +92,6 @@ void free_tries(TRIES *trie)
         free_tries(trie->children[i]);
     }
     free(trie->idxs);
-    free(trie->children);
+    // free(trie->children);
     free(trie);
 }
