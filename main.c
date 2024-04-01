@@ -10,6 +10,7 @@ int main()
         insert_word(t, i, words[i]);
     }
     printf("whether word 'dog' exist in tries: %d\n", find_word(t, "dog"));
+    printf("whether word 'doggy' exist in tries: %d\n", find_word(t, "doggy"));
     printf("whether prefix 'res' exist in tries: %d\n", find_prefix(t, "res"));
     size_t result_length = 0;
     size_t *idx_of_cat = all_idx_with_word(t, "cat", &result_length);
