@@ -16,4 +16,5 @@ TRIES *initialize();
 void insert_word(TRIES *trie, size_t i, char *word);
 int find_word(TRIES *trie, char *word);
 int find_prefix(TRIES *trie, char *prefix);
+size_t *all_idx_with_word(TRIES *trie, char *word, size_t *result_length);
 #endif

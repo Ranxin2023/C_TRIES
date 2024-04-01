@@ -64,3 +64,19 @@ int find_prefix(TRIES *trie, char *prefix)
     }
     return 1;
 }
+
+size_t *all_idx_with_word(TRIES *trie, char *word, size_t *result_length)
+{
+    TRIES *t = trie;
+    size_t word_length = strlen(word);
+    for (size_t i = 0; i < word_length; i++)
+    {
+        if (t->children[(int)word[i]] == NULL)
+        {
+            return 0;
+        }
+        t = t->children[(int)word[i]];
+    }
+    *result_length = t->idx_length;
+    return t->idxs;
+}
