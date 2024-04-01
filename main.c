@@ -18,5 +18,6 @@ int main()
     {
         printf("%lld\t", idx_of_cat[i]);
     }
+    free_tries(t);
     return 0;
 }

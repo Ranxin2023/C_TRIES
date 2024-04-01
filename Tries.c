@@ -80,3 +80,18 @@ size_t *all_idx_with_word(TRIES *trie, char *word, size_t *result_length)
     *result_length = t->idx_length;
     return t->idxs;
 }
+
+void free_tries(TRIES *trie)
+{
+    if (trie == NULL)
+    {
+        return;
+    }
+    for (size_t i = 0; i < 128; i++)
+    {
+        free_tries(trie->children[i]);
+    }
+    free(trie->idxs);
+    free(trie->children);
+    free(trie);
+}
